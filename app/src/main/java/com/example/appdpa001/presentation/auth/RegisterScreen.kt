@@ -16,9 +16,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(navController: NavController) {
 
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -62,7 +63,12 @@ fun RegisterScreen() {
         )
         //Button for register
         Button(
-            onClick = { /* Handle register button click */ },
+            onClick = {
+                if(name.isNotBlank() && email.isNotBlank() && password.isNotBlank()
+                    && password == confirmPassword){
+                        navController.navigate("login")
+                    }
+            },
             modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
         ) {
             Text("Registrarse")
