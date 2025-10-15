@@ -50,7 +50,7 @@ fun HomeScreen() {
                             painter = rememberAsyncImagePainter(country.imageURL),
                             contentDescription = country.name,
                             //contentScale = ContentScale.Crop,
-                            modifier = Modifier.size(64.dp)
+                            modifier = Modifier.size(64.dp).padding(end = 16.dp)
                             )
                         Column{
                             Text(country.name, style = MaterialTheme.typography.titleMedium)
