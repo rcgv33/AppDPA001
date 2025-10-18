@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "773616331735",
+    "project_id": "gutierrezdpa202502",
+    "storage_bucket": "gutierrezdpa202502.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773616331735:android:ee810e33a0b6f7f7abf992",
+        "android_client_info": {
+          "package_name": "com.example.appdpa001"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBGvNCCeX4VQ5D_XcRohWvZRrkb5bp-8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

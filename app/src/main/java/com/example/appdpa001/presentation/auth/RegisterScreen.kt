@@ -1,5 +1,6 @@
 package com.example.appdpa001.presentation.auth
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,8 +16,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.appdpa001.data.remote.firebase.FirebaseAuthManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Composable
 fun RegisterScreen(navController: NavController) {
@@ -25,6 +31,9 @@ fun RegisterScreen(navController: NavController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
+
+    val context = LocalContext.current
+
 
     Column(
         modifier = Modifier.padding(16.dp)
@@ -66,8 +75,19 @@ fun RegisterScreen(navController: NavController) {
             onClick = {
                 if(name.isNotBlank() && email.isNotBlank() && password.isNotBlank()
                     && password == confirmPassword){
-                        navController.navigate("login")
+
+                    CoroutineScope(Dispatchers.Main).launch {
+                        val result = FirebaseAuthManager.registerUser(name, email, password)
+                        if(result.isSuccess){
+                            navController.navigate("login")
+                        } else {
+                            val error = result.exceptionOrNull()?.message ?: "Error desconocido"
+                            Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+                        }
                     }
+
+                    navController.navigate("login")
+                }
             },
             modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
         ) {
