@@ -70,7 +70,6 @@ fun LoginScreen(navController: NavController){
                         }
                     }
 
-                    navController.navigate("home")
                 }
             },
             modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()

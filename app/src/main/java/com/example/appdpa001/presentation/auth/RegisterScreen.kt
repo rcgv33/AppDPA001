@@ -86,7 +86,6 @@ fun RegisterScreen(navController: NavController) {
                         }
                     }
 
-                    navController.navigate("login")
                 }
             },
             modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
