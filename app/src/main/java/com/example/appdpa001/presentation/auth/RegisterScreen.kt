@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.appdpa001.data.remote.firebase.FirebaseAuthManager
@@ -61,14 +62,16 @@ fun RegisterScreen(navController: NavController) {
             value = password,
             onValueChange = { password = it },
             label = { Text("Contraseña") },
-            modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
+            modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+            visualTransformation = PasswordVisualTransformation()
         )
         //OutlinedTextField for confirm password
         OutlinedTextField(
             value = confirmPassword,
             onValueChange = { confirmPassword = it },
             label = { Text("Confirmar contraseña") },
-            modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
+            modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth(),
+            visualTransformation = PasswordVisualTransformation()
         )
         //Button for register
         Button(
