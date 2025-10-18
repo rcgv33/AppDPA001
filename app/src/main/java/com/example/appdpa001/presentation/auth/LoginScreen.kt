@@ -27,7 +27,7 @@ fun LoginScreen(navController: NavController){
     var password by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(32.dp)
     ){
         Text("Iniciar Sesión", style = MaterialTheme.typography.titleLarge)
 

@@ -53,6 +53,7 @@ fun HomeScreen() {
                             modifier = Modifier.size(64.dp).padding(end = 16.dp)
                             )
                         Column{
+                            Spacer(modifier = Modifier.height(8.dp))
                             Text(country.name, style = MaterialTheme.typography.titleMedium)
                             Text(country.ranking.toString(), style = MaterialTheme.typography.bodyMedium)
 
