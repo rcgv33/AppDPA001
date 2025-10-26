@@ -53,6 +53,7 @@ fun LoginScreen(navController: NavController){
             label = { Text("Contraseña") },
             modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
         )
+
         //Spacer for spacing between fields
         Spacer(modifier = Modifier.height(16.dp))
 
