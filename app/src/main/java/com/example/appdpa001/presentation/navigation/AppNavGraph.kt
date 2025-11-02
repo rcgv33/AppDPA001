@@ -33,5 +33,10 @@ fun AppNavGraph() {
                 Text(text = "Proximamente pantalla favoritos")
             }
         }
+        composable(route = "football") {
+            DrawerScaffold(navController) {
+                Text(text = "Proximamente pantalla apifootball")
+            }
+        }
     }
 }

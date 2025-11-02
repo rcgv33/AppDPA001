@@ -13,10 +13,10 @@ object RetrofitInstance {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(Interceptor { chain ->
-            val newRequest = chain.request().newBuilder()
-                .addHeader("x-rapidapi-key", API)
+            val request = chain.request().newBuilder()
+                .addHeader("x-apisports-key", API_KEY)
                 .build()
-            chain.proceed(newRequest)
+            chain.proceed(request)
         })
         .build()
 
