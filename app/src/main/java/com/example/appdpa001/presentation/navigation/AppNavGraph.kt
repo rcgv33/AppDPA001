@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.appdpa001.presentation.Apifootball.ApiFootballScreen
 import com.example.appdpa001.presentation.auth.LoginScreen
 import com.example.appdpa001.presentation.auth.RegisterScreen
 import com.example.appdpa001.presentation.home.HomeScreen
@@ -14,7 +15,7 @@ import com.example.appdpa001.presentation.permissions.GalleryPermissionScreen
 fun AppNavGraph() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "register")
+    NavHost(navController = navController, startDestination = "home")
     {
         composable(route = "register") { RegisterScreen(navController) }
         composable(route = "login") { LoginScreen(navController) }
@@ -35,7 +36,7 @@ fun AppNavGraph() {
         }
         composable(route = "football") {
             DrawerScaffold(navController) {
-                Text(text = "Proximamente pantalla apifootball")
+                ApiFootballScreen()
             }
         }
     }

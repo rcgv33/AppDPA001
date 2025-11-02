@@ -1,7 +1,8 @@
 package com.example.appdpa001.data.remote.apifootball
 
 //Generando data class para las variables name, code y flag
-data class Country(val name: String, val code: String?, val flag: String?)
+data class Country(
+    val name: String, val code: String?, val flag: String?)
 
 //respuesta un data class
 data class CountryResponse(val response: List<Country>)
