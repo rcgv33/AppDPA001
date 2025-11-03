@@ -48,23 +48,23 @@ fun ApiFootballScreen(viewModel: ApiFootballViewModel = viewModel()) {
 
     Column (modifier = Modifier.fillMaxSize().padding(16.dp))
     {
-        Text(text = "Equipos de Futbol por Pais", style = MaterialTheme.typography.titleLarge)
+        Text( "Equipos de Futbol por Pais", style = MaterialTheme.typography.titleLarge)
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Box{
             OutlinedButton(
                 onClick = { expanded = true },
-                modifier = Modifier.height(48.dp).fillMaxWidth()
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Text( text = selectedCountry?.name ?: "Selecciona un pais")
+                Text( selectedCountry?.name ?: "Seleccionar pais")
             }
         }
         DropdownMenu(expanded = expanded
                 , onDismissRequest = { expanded = false }){
             countries.forEach { country ->
                 DropdownMenuItem(
-                    text = { Text(text = country.name) },
+                    text = { Text(country.name) },
                     onClick = {
                         expanded = false
                         viewModel.onCountrySelected(country)
@@ -77,7 +77,7 @@ fun ApiFootballScreen(viewModel: ApiFootballViewModel = viewModel()) {
         if (isLoading) {
             CircularProgressIndicator()
         }else if (errorMessages!=null) {
-            Text(text = errorMessages!!, color = MaterialTheme.colorScheme.error)
+            Text( errorMessages!!, color = MaterialTheme.colorScheme.error)
         }else{
             LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp))
             {
@@ -89,14 +89,13 @@ fun ApiFootballScreen(viewModel: ApiFootballViewModel = viewModel()) {
                        {
                            Image(painter = rememberAsyncImagePainter(wrapper.team.logo),
                                 contentDescription = wrapper.team.name,
-                               modifier = Modifier.size(60.dp),
+                               modifier = Modifier.size(64.dp),
                                contentScale = ContentScale.Crop
                            )
                            Spacer(modifier = Modifier.width(12.dp))
                            Column{
                                Text(wrapper.team.name, style = MaterialTheme.typography.titleMedium)
                                Text("Fundado el: ${wrapper.team.founded ?: "Desconocido"}")
-
                            }
                        }
 
